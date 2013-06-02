@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8">
 	<title>asdht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jeopardy.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 	<link rel = "stylesheet" href="css/bootstrap.css" />
     <link rel = "stylesheet" href="css/bootstrap-responsive.css">
 	<link rel = "stylesheet" href="css/style.css" />
-	<script>
-		testhtm();
-	</script>
 </head>
-<body>
-	<div class="container-narrow">
+<body ng-app="myJeopardy">
+	<div class="container-narrow" ng-controller="JeopardyController" ng-init="doSearch()" >
       <div class="masthead">
         <h3 class="muted">Jeopardy</h3>
       </div>
@@ -25,32 +22,39 @@
 				<strong><span id = "category"></span></strong>
 			</div>
 			<div style="float:right;">
-				<strong><span id = "game"></span></strong>
+				<strong><span id = "game">{{ gameid }}</span></strong>
 			</div>
 			<br/>
-			<div id = "question"><span id = "question"></span></div>
+			<div id = "question">{{ question.question }}</div>
 			<p>
 				<div>
-					<a href="#" class="btn btn-inverse btn-small" id="btn-answer">Answer</a>
-					<a href="#" class="btn btn-info btn-small" id="btn-left"><i class="icon-white icon-backward"></i></a>
-					<a href="#" class="btn btn-info btn-small" id="btn-right"><i class="icon-white icon-forward"></i></a>
-					<strong><span id = "answer"></span></strong>
+					<a href="#" class="btn btn-inverse btn-small" >Answer</a>
+					<a href="#" class="btn btn-info btn-small" ng-click="prevQuestion()"><i class="icon-white icon-backward"></i></a>
+					<a href="#" class="btn btn-info btn-small" ng-click="nextQuestion()"><i class="icon-white icon-forward"></i></a>
+					<strong><span>{{ question.answer }}</span></strong>
 					<div style="float:right;">
-						<a href="#" class="btn btn-warning btn-small" id="btn-gameleft"><i class="icon-black icon-backward"></i></a>
-						<a href="#" class="btn btn-warning btn-small" id="btn-gameright"><i class="icon-black icon-forward"></i></a>
+						<a href="#" class="btn btn-warning btn-small" ng-click="prevGame()"><i class="icon-black icon-backward"></i></a>
+						<a href="#" class="btn btn-warning btn-small" ng-click="nextGame()"><i class="icon-black icon-forward"></i></a>
 					</div>
 				</div>
-				<span id = "showing">#/#</span>
+				<span id = "showing">{{ questionindex + 1 }}/{{ questioncount }}</span>
 			</p>
 		</div>
+	    <table>
+	      <tr ng-repeat="item in questions">
+	        <td>{{item.clue}}</td>
+	        <td>{{item.answer}}</td>
+	      </tr>
+	    </table>
 
 
       <hr>
 
       <div class="footer">
-        <p>&copy; austin</p>
+        <p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
       </div>
 
+	<script src="js/jeopardy.js"></script>
 	</div>
 </body>
 </html>

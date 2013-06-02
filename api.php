@@ -1,5 +1,6 @@
-
 <?php
+
+header('Content-Type: application/json');
 
 function dbConnect()
 {	
@@ -63,7 +64,8 @@ function getGame($debug)
 	}
 	$select .= " AND round < 3 ";
 	if ($debug == 1) echo '</ul>';
-	$select .= " ORDER BY cat.id";
+	$select .= " ORDER BY c.id";
+	//$select .= " ORDER BY cat.id";
 	return $select;
 }
 

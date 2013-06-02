@@ -1,137 +1,65 @@
-var currentGame=1;
-function testhtm() {
-	console.log("testhtm");
-	$(document).ready(function() {
-		loadEverything();
-		$("#btn-gameright").click(function() {
-			nextGame();
+'use strict';
+
+var jeopardy = angular.module('myJeopardy', []);
+
+/* factories */
+
+jeopardy.factory('DataService', function($http){
+	var get = function($params){
+		return $http.get('http://localhost/spa-jeopardy/api.php', {match: 'GET', params: $params}).
+		success(function(data, status, headers, config) {
+			return data;
 		});
-		$("#btn-gameleft").click(function() {
-			previousGame();
+	};
+	return {
+		get : get
+	};
+});
+
+
+
+/* controllers */
+
+jeopardy.controller('JeopardyController', function($scope, DataService) {
+	$scope.gameid = 1;
+	$scope.questionid = 0;
+	$scope.question = {};
+	$scope.questionindex = 0;
+	$scope.questioncount = '#';
+
+	$scope.doSearch = function () {
+		DataService.get({game:'', id:$scope.gameid}).then(function(response){
+			$scope.questionindex = 0;
+			$scope.questions = response.data;
+			$scope.populate();
+			console.log($scope.questions);
 		});
-		function nextGame(){
-			currentGame++;
-			loadEverything();
-		}
-		function previousGame(){
-			currentGame--;
-			loadEverything();
-		}
-	});
-}
+	};
 
-function board() {
-	console.log("generating board");
-	$(document).ready(function() {
-		loadBoard();
-		$("#btn-gameright").click(function() {
-			nextGame();
-		});
-		$("#btn-gameleft").click(function() {
-			previousGame();
-		});
-		function nextGame(){
-			currentGame++;
-			loadBoard();
-		}
-		function previousGame(){
-			currentGame--;
-			loadBoard();
-		}
-	});
-}
-
-function loadBoard() {
-	getQuestions(function(questions) {
-		$('span#game').text("GameID: " + questions[0].game + 
-					"    Airdate: " + questions[0].airdate);
-		console.log("asd");
-		for (i = 0; i < 6; i++)
-		{
-			$('th').eq(i).text(questions[i*6].category);
-		}
-		for (j = 1; j <= 6; j++)
-		{
-			for (k = 1; k <= 6; k++)
-			{
-				var q = questions[j + (k-1)*6];
-				$td = $('td').eq(k + 6*(j-1) - 1);
-				$td.text(q.clue)
-				makeHover($td, q);
-			}
-
-		}
-	});
-
-	function makeHover($element, question){
-		$element.hover(function () {
-			    	$(this).text(question.answer);
-			    	$(this).addClass('answerText');
-		  		},
-			  	function () {
-			    	$(this).text(question.clue);
-			    	$(this).removeClass('answerText');
-			  	});
-
+	$scope.populate = function() {
+		console.log($scope.questionid);
+		console.log($scope.questions[$scope.questionid]);
+		$scope.gameid = $scope.questions[$scope.questionindex]['id'];
+		$scope.question.question = $scope.questions[$scope.questionindex]['clue'];
+		$scope.question.answer = $scope.questions[$scope.questionindex]['answer'];
+		$scope.questioncount = $scope.questions.length;
 	}
 
-	function getQuestions(cb){
-		$.getJSON('api.php', {game : ''}, function(data) {	
-			var questions = [];
-			$.each(data, function(index, value) {
-				questions.push(data[index]);
-			});
-			cb(questions);
-		});
+	$scope.nextQuestion = function() {
+		$scope.questionid++;
+		$scope.populate();
 	}
-}
 
-function loadEverything() {
-
-	getQuestions(function(questions) {
-		var num = 1;
-		current = questions[num-1];
-		$('span#game').text("GameID: " + current.game + 
-					"    Airdate: " + current.airdate);
-		$('span#showing').text(num + " / " + questions.length);
-		$('span#question').text(current.clue);
-		$('span#category').text(current.category);
-		$('span#answer').text("");
-
-		$("#btn-answer").click(function() {
-			$('span#answer').text(current.answer);
-		});
-		function next(){
-			num++;
-			current = questions[num-1];
-			$('span#showing').text(num + " / " + questions.length);
-			$('span#question').text(current.clue);
-			$('span#category').text(current.category);
-			$('span#answer').text("");
-		}
-		function previous(){
-			num--;
-			current = questions[num-1];
-			$('span#showing').text(num + " / " + questions.length);
-			$('span#question').text(current.clue);
-			$('span#category').text(current.category);
-			$('span#answer').text("");
-		}
-		$("#btn-left").unbind().click(function() {
-			previous();
-		});
-		$("#btn-right").unbind().click(function() {
-			next();
-		});
-	});
-
-	function getQuestions(cb){
-		$.getJSON('api.php', {game : ''}, function(data) {	
-			var questions = [];
-			$.each(data, function(index, value) {
-				questions.push(data[index]);
-			});
-			cb(questions);
-		});
+	$scope.nextGame = function() {
+		$scope.gameid++;
+		$scope.doSearch();
 	}
-}
+
+	$scope.prevGame = function() {
+		$scope.gameid--;
+		$scope.doSearch();
+	}
+
+	//$scope.$watch($scope.populate);
+	//$scope.$watch('gameid', populate());
+});

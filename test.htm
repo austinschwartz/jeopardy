@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 	<title>asdht</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 	<link rel = "stylesheet" href="css/bootstrap.css" />
-    <link rel = "stylesheet" href="css/bootstrap-responsive.css">
+	<link rel = "stylesheet" href="css/bootstrap-responsive.css">
 	<link rel = "stylesheet" href="css/style.css" />
 </head>
 <body ng-app="myJeopardy">
-	<div class="container-narrow" ng-controller="JeopardyController" ng-init="doSearch()" >
-      <div class="masthead">
-        <h3 class="muted">Jeopardy</h3>
-      </div>
-
-		<div class="hero-unit" id="yes">
-			<div style="float:left;">
-				<strong><span id = "category"></span></strong>
-			</div>
-			<div style="float:right;">
-				<strong><span id = "game">{{ gameid }}</span></strong>
-			</div>
-			<br/>
-			<div id = "question">{{ question.question }}</div>
-			<p>
-				<div>
-					<a href="#" class="btn btn-inverse btn-small" >Answer</a>
-					<a href="#" class="btn btn-info btn-small" ng-click="prevQuestion()"><i class="icon-white icon-backward"></i></a>
-					<a href="#" class="btn btn-info btn-small" ng-click="nextQuestion()"><i class="icon-white icon-forward"></i></a>
-					<strong><span>{{ question.answer }}</span></strong>
-					<div style="float:right;">
-						<a href="#" class="btn btn-warning btn-small" ng-click="prevGame()"><i class="icon-black icon-backward"></i></a>
-						<a href="#" class="btn btn-warning btn-small" ng-click="nextGame()"><i class="icon-black icon-forward"></i></a>
-					</div>
-				</div>
-				<span id = "showing">{{ questionindex + 1 }}/{{ questioncount }}</span>
-			</p>
+	<div class="container" ng-controller="JeopardyController" ng-init="doSearch()" >
+		<div class="masthead">
+			<h3 class="muted">Jeopardy</h3>
 		</div>
-	    <table>
-	      <tr ng-repeat="item in questions">
-	        <td>{{item.clue}}</td>
-	        <td>{{item.answer}}</td>
-	      </tr>
-	    </table>
+		<div class="row">
+			<div style="width: 200px; 100%; padding: 20px;" class="span3 hero-unit">
+				<span>Value: {{ question.value | valuefilter}}</span><br/>
+				<span id = "showing">{{ questionindex + 1 }} / {{ question.count }}<br/>{{ question.id }} / ##</span><br/>
+				<input type="text" style="width: 150px" ng-model="gameinput"></input>
+				<button ng-click="gotoGame(gameinput)">Change game</button>
+
+			</div>
+			<div class="hero-unit span6">
+				<div style="float:left;">
+					<strong><span id = "category">{{ question.category }}</span></strong>
+				</div>
+				<div style="float:right;">
+					<strong><span id = "game">{{ gameid }}</span></strong>
+				</div>
+				<br/>
+				<div id = "question">{{ question.question }}</div>
+				<p>
+					<div>
+						<a href="#" class="btn btn-inverse btn-small" >Answer</a>
+						<a href="#" class="btn btn-info btn-small" ng-click="prevQuestion()"><i class="icon-white icon-backward"></i></a>
+						<a href="#" class="btn btn-info btn-small" ng-click="nextQuestion()"><i class="icon-white icon-forward"></i></a>
+						<strong><span>{{ question.answer }}</span></strong>
+						<div style="float:right;">
+							<a href="#" class="btn btn-warning btn-small" ng-click="prevGame()"><i class="icon-black icon-backward"></i></a>
+							<a href="#" class="btn btn-warning btn-small" ng-click="nextGame()"><i class="icon-black icon-forward"></i></a>
+						</div>
+					</div>
+				</p>
+			</div>
+		</div>
+		<table>
+			<tr ng-repeat="item in questions">
+				<td>{{item.clue}}</td>
+				<td>{{item.answer}}</td>
+			</tr>
+		</table>
 
 
-      <hr>
+		<hr>
 
-      <div class="footer">
-        <p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
-      </div>
+		<div class="footer">
+			<p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
+		</div>
 
-	<script src="js/jeopardy.js"></script>
+		<script src="js/jeopardy.js"></script>
 	</div>
 </body>
 </html>

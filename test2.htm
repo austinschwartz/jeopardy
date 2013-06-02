@@ -1,21 +1,18 @@
 <!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
     <meta charset="utf-8">
 	<title>asdht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jeopardy.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 	<link rel = "stylesheet" href="css/bootstrap.css" />
     <link rel = "stylesheet" href="css/bootstrap-responsive.css">
 	<link rel = "stylesheet" href="css/style.css" />
-	<script>
-		board();
-	</script>
 </head>
-<body ng-controller="JeopardyController">
-	<div class="container-jeopardy">
+<body ng-app="myJeopardy">
+	<div class="container-jeopardy" ng-controller="JeopardyController" ng-init="doSearch()">
       <div class="masthead">
         <h3 class="muted">Jeopardy Board</h3>
       </div>
@@ -49,13 +46,21 @@
 				<strong><span id = "game"></span></strong>
 			</div>
 		</div>
+		<table>
+			<tr ng-repeat="item in questions">
+				<td>{{item.clue}}</td>
+				<td>{{item.answer}}</td>
+			</tr>
+		</table>
 
 
       <hr style="margin-top:75px;">
 
-      <div class="footer">
-        <p>&copy; austin</p>
-      </div>
+		<div class="footer">
+			<p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
+		</div>
+
+		<script src="js/jeopardy.js"></script>
 
 	</div>
 </body>

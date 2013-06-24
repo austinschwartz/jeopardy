@@ -1,0 +1,624 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"subord",
+				"subordinateNodeID"
+			],
+			[
+				"bar",
+				"bar"
+			],
+			[
+				"do",
+				"do"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "api.php",
+			"settings":
+			{
+				"buffer_size": 2918,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "index.htm",
+			"settings":
+			{
+				"buffer_size": 6738,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/JS Validation using Esprima/JsValidate.sublime-build",
+	"command_palette":
+	{
+		"height": 96.0,
+		"selected_items":
+		[
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"validate",
+				"Js Validate"
+			],
+			[
+				" package instal",
+				"Package Control: Install Package"
+			],
+			[
+				"markdown in",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"markdown preview in",
+				"Markdown Preview: preview in Browser"
+			],
+			[
+				"markdown preview",
+				"Markdown Preview: copy to clipboard"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ubuntu/Dropbox/web/coworkermem/o.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/file.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/garbage.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/balls.json",
+		"/home/ubuntu/Dropbox/web/coworkermem/balls.htm",
+		"/home/ubuntu/Dropbox/web/coworkermem/jsonparser2.py",
+		"/home/ubuntu/Dropbox/web/coworkermem/jsonparser.py",
+		"/home/ubuntu/Dropbox/web/coworkermem/chartOut.htm",
+		"/home/ubuntu/Dropbox/web/coworkermem/chartoutput.html",
+		"/home/ubuntu/Dropbox/web/coworkermem/chart.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/output.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/balls.py",
+		"/home/ubuntu/Dropbox/web/coworkermem/o/5107df94e7328342fe9ef2fc.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/o/50c26f80051dde31c96331ac.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/o0.txt",
+		"/home/ubuntu/Dropbox/web/coworkermem/1.json",
+		"/home/ubuntu/Dropbox/web/coworkermem/o1.txt",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/test1.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/someotherpost.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/maypost.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/output/js/cats/index.html",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/about.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/nanoc.yaml",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet/style.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/index.html",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet/friendly.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/Gemfile",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/default.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/coderay_plugin.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/nanoc-code-classifier.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/nanoc/filters/code_classifier.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/nanoc/filters/code_classifier/version.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/test2.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet/bootstrap.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/Guardfile",
+		"/var/www/spa-jeopardy/css/style.css",
+		"/var/www/spa-jeopardy/test.htm",
+		"/var/www/spa-jeopardy/index.htm",
+		"/var/www/spa-jeopardy/css/bootstrap.css",
+		"/home/ubuntu/Dropbox/prog/learn-angular/spa-jeopardy/index.htm",
+		"/var/www/spa-jeopardy/api.php",
+		"/var/www/spa-jeopardy/js/jeopardy.js",
+		"/var/www/spa-jeopardy/test2.htm",
+		"/var/www/spa-jeopardy/css/bootstrap-responsive.css",
+		"/home/ubuntu/Dropbox/prog/learn-angular/spa-jeopardy/js/app.js",
+		"/home/ubuntu/Dropbox/prog/learn-angular/spa-jeopardy/css/style.css",
+		"/var/www/vall/coordinates.txt",
+		"/var/www/vall/old_coordinates.txt",
+		"/var/www/vall/NewMaryRiggServiceArea.kml",
+		"/var/www/vall/MaryRiggServiceArea.kml",
+		"/var/www/vall/parser.php",
+		"/var/www/vall/check.html",
+		"/var/www/vall/check2.html",
+		"/home/ubuntu/Documents/jeopardytraverse.py",
+		"/home/ubuntu/Documents/j-archive/showgame.php?game_id=265",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/ass.py",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/Output.txt",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/output-min.json",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/output.json",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/print.py",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/tweet_sentiment.py",
+		"/home/ubuntu/Dropbox/mooc/coursera-scicomp/myhpsc/homework1/test1.py",
+		"/home/ubuntu/Dropbox/mooc/coursera-scicomp/myhpsc/homework1/test2.sh",
+		"/home/ubuntu/Dropbox/prog/learn-angular/todoapp/todomvc/architecture-examples/angularjs/bower.json",
+		"/home/ubuntu/Dropbox/prog/learn-angular/todoapp/todomvc/architecture-examples/angularjs/index.html",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/twitterstream.py",
+		"/home/ubuntu/Dropbox/mooc/coursera-datanal/datasci_course_materials/assignment1/AFINN-111.txt",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/layouts/default.erb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/layouts/main.erb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/Rules",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet/highlight.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/balls.md",
+		"/home/ubuntu/Dropbox/mooc/datanal/datasci_course_materials/assignment1/twitterstream.py",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet/bootstrapres.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/code_classifier.rb",
+		"/home/ubuntu/Dropbox/mooc/datanal/datasci_course_materials/assignment1/print.py",
+		"/home/ubuntu/Dropbox/prog/nanoc/temp/fuck/Rules",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/stylesheet.css",
+		"/home/ubuntu/Documents/j-archive/showgame.php?game_id=2",
+		"/home/ubuntu/Documents/x.js",
+		"/home/ubuntu/Documents/parser.py",
+		"/home/ubuntu/Documents/test.py",
+		"/home/ubuntu/Documents/jeopardy.sh",
+		"/home/ubuntu/Documents/clues.db",
+		"/home/ubuntu/Documents/jeo/jeopardy-parser/parser.py",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/coderay.css",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/filters/coderay_plugin.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/filters/code_classifier/version.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/lib/filters/code_classifier.rb",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/posts/test1.html",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/test1.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/README.md",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/layouts/default.html",
+		"/home/ubuntu/Dropbox/prog/nanoc/austinschwartz.com/content/index.haml",
+		"/home/ubuntu/Dropbox/prog/austinschwartz.com/Gemfile",
+		"/home/ubuntu/Dropbox/prog/rb/purdue/mech.rb",
+		"/home/ubuntu/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/ubuntu/.config/sublime-text-2/Packages/Markdown Preview/MarkdownPreview.sublime-settings",
+		"/home/ubuntu/Dropbox/prog/austinschwartz.com/README.md",
+		"/home/ubuntu/Dropbox/prog/rb/purdue/Gemfile",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/features/sort_movie_list.feature",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/features/filter_movie_list.feature",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/app/models/movie.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/features/support/paths.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/features/step_definitions/web_steps.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/features/step_definitions/movie_steps.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/app/views/movies/index.html.haml",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/README",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw2_rottenpotatoes/app/controllers/movies_controller.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw2_rottenpotatoes/app/views/movies/index.html.haml",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw3_rottenpotatoes/app/controllers/movies_controller.rb",
+		"/home/ubuntu/Dropbox/prog/nodetest.js",
+		"/home/ubuntu/Dropbox/prog/server.js",
+		"/home/ubuntu/Documents/j-archive/showgame.php?game_id=1647",
+		"/home/ubuntu/Documents/j-archive/showgame.php?game_id=1733",
+		"/home/ubuntu/Dropbox/hackerrank/3markzoid.py",
+		"/home/ubuntu/Dropbox/hackerrank/icecream-input",
+		"/home/ubuntu/Dropbox/hackerrank/icecream.py",
+		"/home/ubuntu/Dropbox/hackerrank/fizzbuzz.py",
+		"/home/ubuntu/Dropbox/hackerrank/fizzbuzz.rb",
+		"/home/ubuntu/Dropbox/hackerrank/1princess.py",
+		"/home/ubuntu/Dropbox/hackerrank/3input",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw2_rottenpotatoes/app/controllers/application_controller.rb",
+		"/home/ubuntu/Dropbox/mooc/edx-saas/hw2_rottenpotatoes/app/models/movie.rb",
+		"/home/ubuntu/Dropbox/hackerrank/1input",
+		"/home/ubuntu/Dropbox/mooc/udacity-cs253/helloudacity/helloworld.py",
+		"/home/ubuntu/Dropbox/mooc/udacity-cs253/helloudacity/app.yaml"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"\\",
+			"print ",
+			".write",
+			"open(",
+			".open",
+			"record, david",
+			"brown, don",
+			"50c26f63e7328332f14cf2d4",
+			"record, david",
+			"vincent, jeremy",
+			"record, david",
+			"schwartz",
+			"schaffer, brian",
+			"vincent, jeremy",
+			"519fca21f6b00a3dcd80c6f6\"",
+			"519fca21f6b00a3dcd80c6f6\":",
+			"513780a696ea0c52e5ec7880",
+			": {",
+			"50c26f5ee7328332ef4cf2ba",
+			", gary",
+			"blough",
+			"50c26f5ee7328332ef4cf2ba",
+			": {",
+			"read",
+			"directreportcount",
+			"managerid",
+			"directreportcount",
+			"manager",
+			"managerId",
+			"directreportcount\": ",
+			"record",
+			"record, david",
+			"automation",
+			"\"INTERN\"",
+			"padding-top",
+			"narrow",
+			"container-narrow",
+			"balls",
+			"getquestions",
+			"span#game",
+			"results",
+			"#inputs",
+			"parser",
+			"airdates",
+			"filter",
+			"filters",
+			"click",
+			"submit",
+			"follow",
+			"---",
+			"-"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "api.php",
+					"settings":
+					{
+						"buffer_size": 2918,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "index.htm",
+					"settings":
+					{
+						"buffer_size": 6738,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": true,
+							"sublimelinter_gutter_marks_theme": "simple",
+							"sublimelinter_mark_style": "none",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"C++": "c",
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 27.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 145.0,
+	"status_bar_visible": true
+}

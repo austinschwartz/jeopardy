@@ -4,7 +4,11 @@ var jeopardy = angular.module('myJeopardy', ['ui.bootstrap']);
 
 jeopardy.factory('DataService', function($http){
 	var get = function($params){
+<<<<<<< HEAD
 		return $http.get('./api.php', {match: 'GET', params: $params}).
+=======
+		return $http.get('http://www.austinschwartz.com/jeopardy/angular2/api.php', {match: 'GET', params: $params}).
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 		success(function(data, status, headers, config) {
 			return data;
 		});
@@ -22,7 +26,11 @@ jeopardy.controller('BoardController', function($scope, DataService) {
 	$scope.roundnum = 1;
 
 	$scope.loadGame = function () {
+<<<<<<< HEAD
 		$scope.openLoading();
+=======
+		$scope.startLoading();
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 		DataService.get({category:''}).then(function(response){
 			$scope.questions 	= response.data;
 			$scope.gamenum 		= $scope.questions[1]['game'];
@@ -33,7 +41,11 @@ jeopardy.controller('BoardController', function($scope, DataService) {
 			console.log($scope.questions);
 
 			console.log("loaded");
+<<<<<<< HEAD
 			$scope.closeLoading();
+=======
+			$scope.endLoading();
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 		});
 	};
 
@@ -41,6 +53,7 @@ jeopardy.controller('BoardController', function($scope, DataService) {
 		$scope.question = $scope.questions[$id];
 	}
 
+<<<<<<< HEAD
 	/* Answer Modal */
 	$scope.answerOpts = { // answer modal
 		backdropFade: true,
@@ -75,10 +88,31 @@ jeopardy.controller('BoardController', function($scope, DataService) {
 
 	/* Register Modal */
 	$scope.registerOpts = { // login modal
+=======
+	$scope.open = function ($id) {
+		$scope.shouldBeOpen = true;
+		$scope.setQuestion($id);
+	};
+
+	$scope.close = function () {
+		$scope.shouldBeOpen = false;
+	};
+
+	$scope.startLoading = function () {
+		$scope.loading = true;
+	};
+
+	$scope.endLoading = function () {
+		$scope.loading = false;
+	};
+
+	$scope.opts = { // answer modal
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 		backdropFade: true,
 		dialogFade:true
 	};
 
+<<<<<<< HEAD
 	$scope.openRegister = function () {
 		$scope.registerModal = true;
 	};
@@ -106,6 +140,12 @@ jeopardy.controller('BoardController', function($scope, DataService) {
 
 
 
+=======
+	$scope.loadopts = { // load modal
+		backdropFade: true,
+		dialogFade:true
+	};
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 });
 
 /* filters */

@@ -43,7 +43,11 @@ $headerCells.each(function(k,v) {
 $rows.each(function(row,v) {
 	$(this).find("td").each(function(cell,v) {
 		if (typeof rows[cell] === 'undefined') rows[cell] = [];
+<<<<<<< HEAD
 	    $(this).attr('ng-click', 'openAnswer(' + (row + (cell * 5)) + ')');
+=======
+	    $(this).attr('ng-click', 'open(' + (row + (cell * 5)) + ')');
+>>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
 		$(this).text('{{ ' + 'questions[' + (row + (cell * 5)) + ']["clue"] }}');
 		//$(this).text('' + (row + (cell*5)) + '');
 	});

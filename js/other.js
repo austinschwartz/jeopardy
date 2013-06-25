@@ -4,27 +4,27 @@
 /*
 $('table.jeopardyboard tr').each(function ()
 {
-	var $row = $(this);
-	if ($row.attr('id') != 'head')
-	{
-		$row.children().each(function ()
-		{
-			var $cell = $(this);
+    var $row = $(this);
+    if ($row.attr('id') != 'head')
+    {
+        $row.children().each(function ()
+        {
+            var $cell = $(this);
 
-		    $cell.text('catqs[{{roundnum - 1}}][' + $cell.index() + '][' + ($row.index() - 1) + '][\'clue\']');
-	        var x = 0;
-	        var y = $cell.index();
-	        var z = ($row.index() - 1);
-	        //$cell.attr("ng-click", "open(" + "(roundnum - 1)" + ", " + y + ", " + z + ")");
-	        //$cell.attr('ng-click', 'open()');
-	        //$cell.attr('question-open', 'test');
-	        
-	        //$cell.attr('x', 0);
-	        //$cell.attr('y', y);
-	        //$cell.attr('z', z);
-	    	
-	    });
-	}
+            $cell.text('catqs[{{roundnum - 1}}][' + $cell.index() + '][' + ($row.index() - 1) + '][\'clue\']');
+            var x = 0;
+            var y = $cell.index();
+            var z = ($row.index() - 1);
+            //$cell.attr("ng-click", "open(" + "(roundnum - 1)" + ", " + y + ", " + z + ")");
+            //$cell.attr('ng-click', 'open()');
+            //$cell.attr('question-open', 'test');
+            
+            //$cell.attr('x', 0);
+            //$cell.attr('y', y);
+            //$cell.attr('z', z);
+            
+        });
+    }
 });
 */
 
@@ -37,25 +37,21 @@ var headers = [];
 rows = [];
 
 $headerCells.each(function(k,v) {
-	$(this).text('{{ questions[' + (1 + (k * 5)) + ']["category"] }}');
+    $(this).text('{{ questions[' + (1 + (k * 5)) + ']["category"] }}');
 });
 
 $rows.each(function(row,v) {
-	$(this).find("td").each(function(cell,v) {
-		if (typeof rows[cell] === 'undefined') rows[cell] = [];
-<<<<<<< HEAD
-	    $(this).attr('ng-click', 'openAnswer(' + (row + (cell * 5)) + ')');
-=======
-	    $(this).attr('ng-click', 'open(' + (row + (cell * 5)) + ')');
->>>>>>> 02c402e302860ab4a30399b60794b59ac1f0d1ed
-		$(this).text('{{ ' + 'questions[' + (row + (cell * 5)) + ']["clue"] }}');
-		//$(this).text('' + (row + (cell*5)) + '');
-	});
+    $(this).find("td").each(function(cell,v) {
+        if (typeof rows[cell] === 'undefined') rows[cell] = [];
+        $(this).attr('ng-click', 'openAnswer(' + (row + (cell * 5)) + ')');
+        $(this).text('{{ ' + 'questions[' + (row + (cell * 5)) + ']["clue"] }}');
+        //$(this).text('' + (row + (cell*5)) + '');
+    });
 });
 
 
 // $('table.jeopardyboard th').each(function ()
 // {
-// 	var $cell = $(this);
-// 	$cell.text(' {{ ' + 'categories[(roundnum)][' + $cell.index() + '] }}');
+//  var $cell = $(this);
+//  $cell.text(' {{ ' + 'categories[(roundnum)][' + $cell.index() + '] }}');
 // });

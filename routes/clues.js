@@ -26,21 +26,27 @@ exports.findByCatId = function(req, res) {
   });
 };
 
-exports.findRandomGame = function(req, res) {
+exports.findRandomCategory = function(req, res) {
   db.collection('clues', function(err, collection) {
-    var arr = [];
-    var catid;
-    for (var i = 0; i < 5; i++)
-    {
-      catid = Math.floor(Math.random()*60);
-      collection.find({'catid': catid}).toArray(function(err, items) {
-        console.log(items);
-        res.send(items);
-      });
-    }
+    var catid = Math.floor(Math.random()*60);
+    collection.find({'catid': catid}).toArray(function(err, items) {
+      res.send(items);
+    });
   });
 };
 
+exports.findRandomGame = function(req, res) {
+  db.collection('clues', function(err, collection) {
+    var arr = [];
+    for (var i = 0; i < 5; i++)
+    {
+      arr.push(Math.floor(Math.random()*60))
+    }
+    var items = collection.find({'catid': {$in : arr}}).toArray(function(err, items){
+      res.send(items);
+    });
+  });
+};
 
 exports.findAll = function(req, res) {
   db.collection('clues', function(err, collection) {

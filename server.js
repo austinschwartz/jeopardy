@@ -12,7 +12,9 @@ app.use(express.static(__dirname));
 
 app.get('/clues', clue.findAll);
 app.get('/clues/cat/:catid', clue.findByCatId);
+app.get('/cats/random', clue.findRandomCategory);
 app.get('/games/random', clue.findRandomGame);
+
 
 app.listen(3000);
 console.log('Listening on port 3000...');

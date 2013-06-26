@@ -37,7 +37,8 @@ var headers = [];
 rows = [];
 
 $headerCells.each(function(k,v) {
-    $(this).text('{{ questions[' + (1 + (k * 5)) + ']["category"] }}');
+    //$(this).text('{{ questions[' + (1 + (k * 5)) + ']["category"] }}');
+    $(this).text('{{ categories[' + k + '] }}');
 });
 
 $rows.each(function(row,v) {

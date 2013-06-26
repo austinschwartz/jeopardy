@@ -22,11 +22,19 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     $scope.roundnum = 1;
 
     $scope.loadGame = function () {
-        $scope.openLoading();
         DataService.get().then(function(response){
+            $scope.openLoading();
             $scope.questions    = response.data;
-            $scope.gamenum      = $scope.questions[1]['game'];
-            $scope.categories   = {};
+            $scope.gamenum      = $scope.questions[1]['gameid'];
+            $scope.categories   = [];
+            for (var i = 0; i < $scope.questions.length; i++)
+            {
+                if ($scope.categories.indexOf($scope.questions[i]['category']) > -1)
+                {
+                    $scope.categories.push($scope.questions[i]['category']);
+                }
+            }
+            console.log($scope.categories);
             $scope.roundcount   = 0;
             $scope.airdate = $scope.questions[1]['airdate'];
 
@@ -92,8 +100,10 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     $scope.loadOpts = { // load modal
         backdropFade: true,
         dialogFade:true,
-        backdropClick: false,
-        keyboard: false
+        //backdropClick: false,
+        //keyboard: false
+        backdropClick: true,
+        keyboard: true
     };
 
     $scope.openLoading = function () {

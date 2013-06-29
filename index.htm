@@ -25,13 +25,31 @@
 					<button class="btn btn-warning" style="margin-top: 14px; margin-left: 25px;" ng-click="loadGame()">Random</button>
 					<button class="btn btn-info" style="margin-top: 14px; margin-left: 15px;" ng-click="openLogin()">Login</button>
 					<button class="btn btn-inverse" style="margin-top: 14px; margin-left: 15px;" ng-click="openRegister()">Register</button>
+					<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedScoring = !collapsedScoring">Scoring</button>
+					<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedOptions = !collapsedOptions">Options</button>
 				</div>
 				<div style="text-align:right;">
 					<h3 class="muted">Randomized Game</h3>
 				</div>
 			</div>
 		</div>
-
+		<div id="tophero" collapse="isCollapsed">
+			<div id="scoringhero" collapse="collapsedScoring">
+				<div style="padding:20px">
+					<p>
+						Current Score: {{ session.currentscore | valuefilter }}
+					</p>
+					<p>
+						Game count : {{ session.gamecount }}
+					</p>
+				</div>
+			</div>
+			<div id="optionshero" collapse="collapsedOptions">
+				<div style="padding:10px">
+					Options
+				</div>
+			</div>
+		</div>
 		<div id="maintest2">
 			<table class="table table-bordered jeopardyboard" style="background-color: #f5f5f5;">
 				<thead>
@@ -79,10 +97,12 @@
 		</div>
 		<div class="modal-body">
 			<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>
-			Value: {{ question.value | valuefilter }}
+			Value: {{ question.value | valuefilter }}<br/>
+			index: {{ question.index }}
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-info cancel" ng-click="closeAnswer()">Ok</button>
+			<button class="btn btn-success cancel" ng-click="closeAnswerCorrect()">I got this right</button>
+			<button class="btn btn-danger cancel" ng-click="closeAnswerFalse()">I got this wrong</button>
 		</div>
 	</div>
 

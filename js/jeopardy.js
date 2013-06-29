@@ -27,6 +27,9 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     $scope.collapsedScoring = true;
 
     $scope.loadGame = function () {
+        for (var j = 0; j < 30; j++) {
+            $("td[qid='" + j + "']").removeClass("disabledQuestion");
+        }
         $scope.session.gamecount++;
         $scope.categories   = [];
         $scope.openLoading();
@@ -57,9 +60,12 @@ jeopardy.controller('BoardController', function($scope, DataService) {
         dialogFade:true
     };
 
-    $scope.openAnswer = function ($id) {
-        $scope.answerModal = true;
-        $scope.setQuestion($id);
+    $scope.openAnswer = function ($index) {
+        if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") == false)
+        {
+            $scope.answerModal = true;
+            $scope.setQuestion($index);
+        }
     };
 
     $scope.closeAnswer = function () {
@@ -68,12 +74,17 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     $scope.closeAnswerCorrect = function () {
         $scope.answerModal = false;
         $scope.session.currentscore += parseInt($scope.question.value);
+        $scope.closeQuestion($scope.question.index);
     };
     $scope.closeAnswerFalse = function () {
         $scope.answerModal = false;
         $scope.session.currentscore -= parseInt($scope.question.value);
+        $scope.closeQuestion($scope.question.index);
     };
 
+    $scope.closeQuestion = function($index) {
+        $("td[qid='" + $index + "']").addClass("disabledQuestion");
+    };
 
 
     /* Login Modal */

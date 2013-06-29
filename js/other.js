@@ -45,8 +45,8 @@ $rows.each(function(row,v) {
     $(this).find("td").each(function(cell,v) {
         if (typeof rows[cell] === 'undefined') rows[cell] = [];
         $(this).attr('ng-click', 'openAnswer(' + (row + (cell * 5)) + ')');
+        $(this).attr('qid', row + (cell * 5));
         $(this).text('{{ ' + 'questions[' + (row + (cell * 5)) + ']["clue"] }}');
-        //$(this).text('' + (row + (cell*5)) + '');
     });
 });
 

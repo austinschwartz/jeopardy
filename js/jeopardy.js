@@ -176,6 +176,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     };
 
     $scope.openCIModal = function (correct, $time) {
+        $scope.CIModalAnswer = $scope.question.answer;
         $scope.CIModal = true;
         if (correct)
             $scope.CIModalText = "Correct!";

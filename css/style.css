@@ -107,9 +107,13 @@ td.disabledQuestion, td.disabledQuestion:hover {
 
 div.ciModal {
 	background-color:lightgreen;
-	font-size: 50px;
 	height: 100px;
 	padding: 20%;
+	font-family: Ubuntu, Georgia, Cambria, 'Times New Roman', Times, serif;
+	font-size: 25px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
 	text-align:center;
 	margin-top: auto;
 	margin-bottom: auto;

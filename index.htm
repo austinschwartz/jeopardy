@@ -91,6 +91,13 @@
 		<p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
 	</div>
 
+	<div modal="CIModal" close="closeCIModal()" options="CIModalOpts">
+		<div class="modal-body ciModal">
+			{{ CIModalText }}
+		</div>
+	</div>
+
+
 	<div modal="answerModal" close="closeAnswer()" options="answerOpts">
 		<div class="modal-header">
 			<h4>{{ question.clue }}</h4>
@@ -109,7 +116,7 @@
 					<div style="margin-top:20px">
 						<input type="text" data-ng-model="answer" placeholder="Answer" name="answer" class="ng-pristine ng-invalid">
 					</div>
-					<p>Answer correct: {{ answerdistances.dice > .6 }}</p>
+					<!--<p>Answer correct: {{ answercorrect }}</p>-->
 				</div>
 			</form>
 			</div>

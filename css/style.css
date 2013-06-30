@@ -104,3 +104,13 @@ td.disabledQuestion, td.disabledQuestion:hover {
 	background-color: #f5f5f5;
 	color: #f5f5f5;
 }
+
+div.ciModal {
+	background-color:lightgreen;
+	font-size: 50px;
+	height: 100px;
+	padding: 20%;
+	text-align:center;
+	margin-top: auto;
+	margin-bottom: auto;
+}

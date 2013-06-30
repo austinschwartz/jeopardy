@@ -26,13 +26,13 @@ jeopardy.factory('DataService', function($http){
 
 /* controllers */
 
-jeopardy.controller('BoardController', function($scope, DataService) {
+jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.session = {};
     $scope.session.currentscore = 0;
     $scope.session.gamecount = 0;
     $scope.collapsedHeader = false;
     $scope.collapsedOptions = true;
-    $scope.collapsedScoring = true;
+    $scope.collapsedScoring = false;
 
     $scope.loadGame = function () {
         for (var j = 0; j < 30; j++) {
@@ -66,13 +66,16 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     /* Answer Modal */
     $scope.answerOpts = { // answer modal
         backdropFade: true,
-        dialogFade:true
+        dialogFade:true,
+        backdropClick: false,
+        keyboard: false
     };
 
     $scope.openAnswer = function ($index) {
         if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") == false)
         {
             $scope.answerModal = true;
+            $scope.answer = "";
             $scope.setQuestion($index);
         }
     };
@@ -81,30 +84,38 @@ jeopardy.controller('BoardController', function($scope, DataService) {
         $scope.answerModal = false;
     };
     $scope.closeAnswerCorrect = function () {
-        $scope.answerModal = false;
+        console.log("correct");
         $scope.session.currentscore += parseInt($scope.question.value);
         $scope.closeQuestion($scope.question.index);
+        $scope.openCIModal(1, 2000);
     };
     $scope.closeAnswerFalse = function () {
-        $scope.answerModal = false;
+        console.log("false");
         $scope.session.currentscore -= parseInt($scope.question.value);
         $scope.closeQuestion($scope.question.index);
+        $scope.openCIModal(0, 2000);
     };
 
     $scope.closeQuestion = function($index) {
         $("td[qid='" + $index + "']").addClass("disabledQuestion");
+        $scope.answerdistances = {};
+        $scope.answercorrect = false;
     };
 
     $scope.submitAnswer = function() {
-        console.log($scope.answer);
         DataService.nat({
                 "input" : $scope.answer, 
                 "answer" : $scope.question.answer
         }).then(function(response){
             $scope.answerdistances = response.data;
             console.log($scope.answerdistances);
+            $scope.answercorrect = ($scope.answerdistances.dice > .51 || $scope.answerdistances.jaro > .8);
+            if ($scope.answercorrect)
+                $scope.closeAnswerCorrect();
+            else
+                $scope.closeAnswerFalse();
         });
-        $scope.answer = "";
+
     }
 
     /* Login Modal */
@@ -156,7 +167,40 @@ jeopardy.controller('BoardController', function($scope, DataService) {
     };
 
 
+    /* CorrectIncorrect Modal */
+    $scope.CIModalOpts = { // load modal
+        backdropFade: true,
+        dialogFade: true,
+        backdropClick: true,
+        keyboard: true
+    };
 
+    $scope.openCIModal = function (correct, $time) {
+        $scope.CIModal = true;
+        if (correct)
+            $scope.CIModalText = "Correct!";
+        else
+            $scope.CIModalText = "Incorrect";
+        $scope.closeCIModal($time);
+    };
+
+    $scope.closeCIModal = function ($time) {
+        $timeout(function() {
+            $scope.CIModal = false;
+            $scope.closeAnswer();
+            $('div.modal-backdrop').remove();
+            $scope.clearModals();
+        }, $time);
+    };
+
+    $scope.clearModals = function () {
+        $scope.closeAnswer();
+        $scope.closeLoading();
+        $scope.closeRegister();
+        $scope.closeLogin();
+        $scope.closeQuestion();
+        $('div.modal-backdrop').remove();
+    };
 });
 
 /* filters */

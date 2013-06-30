@@ -96,13 +96,30 @@
 			<h4>{{ question.clue }}</h4>
 		</div>
 		<div class="modal-body">
-			<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>
+			<div style="float:left">
+			<!--<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>-->
 			Value: {{ question.value | valuefilter }}<br/>
-			index: {{ question.index }}
+			index: {{ question.index }}<br/><br/>
+			Jaro Certainty: {{ (answerdistances.jaro * 100) || 0 | number:0 }}%<br/>
+			Dice Certainty: {{ (answerdistances.dice * 100) || 0 | number:0 }}%<br/>
+		</div>
+			<div style="float:right">
+				<form ng-submit="submitAnswer()" name="answerForm">
+				<div>
+					<div style="margin-top:20px">
+						<input type="text" data-ng-model="answer" placeholder="Answer" name="answer" class="ng-pristine ng-invalid">
+					</div>
+					<p>Answer correct: {{ answerdistances.dice > .6 }}</p>
+				</div>
+			</form>
+			</div>
 		</div>
 		<div class="modal-footer">
+			<button class="btn btn-info cancel" ng-click="submitAnswer()">Submit Answer</button>
+			<!--
 			<button class="btn btn-success cancel" ng-click="closeAnswerCorrect()">I got this right</button>
 			<button class="btn btn-danger cancel" ng-click="closeAnswerFalse()">I got this wrong</button>
+			-->
 		</div>
 	</div>
 

@@ -11,8 +11,16 @@ jeopardy.factory('DataService', function($http){
             return data;
         });
     };
+    var getDistance = function($params){
+        console.log($params);
+        return $http.get('./distance', {match: 'GET', params: $params}).
+        success(function(data, status, headers, config) {
+            return data;
+        });
+    };
     return {
-        get : getRandom
+        get : getRandom,
+        nat : getDistance
     };
 });
 
@@ -36,6 +44,7 @@ jeopardy.controller('BoardController', function($scope, DataService) {
         DataService.get().then(function(response){
             $scope.questions    = response.data;
             //console.log($scope.questions);
+            /*
             for (var i = 0; i < $scope.questions.length; i++)
             {
                 if ($scope.categories.indexOf($scope.questions[i]['category']) < 0)
@@ -43,7 +52,7 @@ jeopardy.controller('BoardController', function($scope, DataService) {
                     $scope.categories.push($scope.questions[i]['category']);
                 }
             }
-
+            */
             console.log("loaded");
         });
         $scope.closeLoading();
@@ -86,6 +95,17 @@ jeopardy.controller('BoardController', function($scope, DataService) {
         $("td[qid='" + $index + "']").addClass("disabledQuestion");
     };
 
+    $scope.submitAnswer = function() {
+        console.log($scope.answer);
+        DataService.nat({
+                "input" : $scope.answer, 
+                "answer" : $scope.question.answer
+        }).then(function(response){
+            $scope.answerdistances = response.data;
+            console.log($scope.answerdistances);
+        });
+        $scope.answer = "";
+    }
 
     /* Login Modal */
     $scope.loginOpts = { // login modal

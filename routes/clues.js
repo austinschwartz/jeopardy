@@ -4,7 +4,7 @@ var Server = mongo.Server,
 Db = mongo.Db,
 BSON = mongo.BSONPure;
 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
+var server = new Server('localhost', 27017, {auto_reconnect: true, safe: false});
 db = new Db('jeopardydb', server);
 
 console.log("clues loaded");

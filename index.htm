@@ -91,17 +91,18 @@
 		<p>&copy; <a href="http://www.austinschwartz.com">austin</a></p>
 	</div>
 
-	<div modal="CIModal" close="closeCIModal()" options="CIModalOpts">
-		<div class="modal-body ciModal">
+	<div modal="modal.CIModal" close="closeCIModal()" options="CIModalOpts">
+		<div class="modal-body ciModalInner ng-class:CIModalClass">
 			<p>{{ CIModalText }}</p>
 			<br/>
 
-			<p>Answer: {{ CIModalAnswer }}</p>
+			<p>Answer: {{ question.answer }}</p>
+			<p>You said: {{ answerinput }}</p>
 		</div>
 	</div>
 
 
-	<div modal="answerModal" close="closeAnswer()" options="answerOpts">
+	<div modal="modal.answerModal" close="clearModals()" options="answerOpts">
 		<div class="modal-header">
 			<h4>{{ question.clue }}</h4>
 		</div>
@@ -110,14 +111,14 @@
 			<!--<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>-->
 			Value: {{ question.value | valuefilter }}<br/>
 			index: {{ question.index }}<br/><br/>
-			Jaro Certainty: {{ (answerdistances.jaro * 100) || 0 | number:0 }}%<br/>
-			Dice Certainty: {{ (answerdistances.dice * 100) || 0 | number:0 }}%<br/>
+			<!--Jaro Certainty: {{ (answerdistances.jaro * 100) || 0 | number:0 }}%<br/>
+			Dice Certainty: {{ (answerdistances.dice * 100) || 0 | number:0 }}%<br/>-->
 		</div>
-			<div style="float:right">
+			<div style="text-align:center">
 				<form ng-submit="submitAnswer()" name="answerForm">
 				<div>
 					<div style="margin-top:20px">
-						<input type="text" data-ng-model="answer" placeholder="Answer" name="answer" class="ng-pristine ng-invalid">
+						<span style="font-size: 18px;">what is</span> <input type="text" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid">
 					</div>
 					<!--<p>Answer correct: {{ answercorrect }}</p>-->
 				</div>
@@ -125,6 +126,7 @@
 			</div>
 		</div>
 		<div class="modal-footer">
+			<button class="btn btn-warning cancel" ng-click="clearModals()">Cancel</button>
 			<button class="btn btn-info cancel" ng-click="submitAnswer()">Submit Answer</button>
 			<!--
 			<button class="btn btn-success cancel" ng-click="closeAnswerCorrect()">I got this right</button>
@@ -133,7 +135,7 @@
 		</div>
 	</div>
 
-	<div modal="loginModal" close="closeLogin()" options="loginOpts" style="height:500px">
+	<div modal="modal.loginModal" close="closeLogin()" options="loginOpts" style="height:500px">
 		<form ng-submit="login()" name="loginForm" class="form-horizontal ng-pristine ng-invalid ng-invalid-required" style="margin-top:50px">
 			<div class="control-group">
 				<label for="username" class="control-label">Username</label>
@@ -163,7 +165,7 @@
 		</div>
 	</div>
 
-	<div modal="registerModal" close="closeRegister()" options="registerOpts">
+	<div modal="modal.registerModal" close="closeRegister()" options="registerOpts">
 		<form ng-submit="register()" name="registerForm" class="form-horizontal ng-scope ng-pristine ng-invalid ng-invalid-required" style="margin-top:25px;">
 			<div class="control-group">
 				<label for="username" class="control-label">Username</label>
@@ -198,7 +200,7 @@
 		</form>
 	</div>
 
-	<div modal="loadingModal"  options="loadOpts">
+	<div modal="modal.loadingModal"  options="loadOpts">
 		<div class="modal-body" style="text-align:center">
 			<h1>Loading...</h1>
 		</div>

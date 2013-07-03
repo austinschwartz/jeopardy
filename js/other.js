@@ -50,7 +50,6 @@ $rows.each(function(row,v) {
     });
 });
 
-
 // $('table.jeopardyboard th').each(function ()
 // {
 //  var $cell = $(this);

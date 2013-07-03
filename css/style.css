@@ -105,26 +105,27 @@ td.disabledQuestion, td.disabledQuestion:hover {
 	color: #f5f5f5;
 }
 
-.ciModalOuter {
+.ciPopoutOuter {
 	margin-top: 250px;
 	margin-bottom: auto;
 	border: 1px solid;
 	border-radius: 8px;
 }
-div.ciModalInner {
+div.ciPopoutInner {
 	font-family: Ubuntu, Georgia, Cambria, 'Times New Roman', Times, serif;
 	font-size: 25px;
 	font-style: normal;
 	font-variant: normal;
 	font-weight: normal;
 	text-align:center;
+	margin-bottom:-15px;
 }
-div.redModal {
+div.redPopout {
 	background-color: #f2dede;
 	border-color: #eed3d7;
 	color: #b94a48;
 }
-div.greenModal {
+div.greenPopout {
 	background-color: #dff0d8;
 	border-color: #d6e9c6;
 	color: #468847;

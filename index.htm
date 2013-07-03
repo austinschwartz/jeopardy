@@ -23,8 +23,8 @@
 				</div>
 				<div style="float:left">
 					<button class="btn btn-warning" style="margin-top: 14px; margin-left: 25px;" ng-click="loadGame()">Random</button>
-					<button class="btn btn-info" style="margin-top: 14px; margin-left: 15px;" ng-click="openLogin()">Login</button>
-					<button class="btn btn-inverse" style="margin-top: 14px; margin-left: 15px;" ng-click="openRegister()">Register</button>
+					<button class="btn btn-info" style="margin-top: 14px; margin-left: 15px;" ng-click="openLogin()" disabled>Login</button>
+					<button class="btn btn-inverse" style="margin-top: 14px; margin-left: 15px;" ng-click="openRegister()" disabled>Register</button>
 					<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedScoring = !collapsedScoring">Scoring</button>
 					<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedOptions = !collapsedOptions">Options</button>
 				</div>
@@ -101,33 +101,41 @@
 		</div>
 	</div>
 
-
-	<div modal="modal.answerModal" close="clearModals()" options="answerOpts">
+	<div modal="modal.answerModal" close="clearModals()" options="answerOpts" id="answerModal">
 		<div class="modal-header">
 			<h4>{{ question.clue }}</h4>
 		</div>
 		<div class="modal-body">
-			<div style="float:left">
+			<div style="float:left" collapse="modal.CIPopout" >
 			<!--<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>-->
 			Value: {{ question.value | valuefilter }}<br/>
 			index: {{ question.index }}<br/><br/>
 			<!--Jaro Certainty: {{ (answerdistances.jaro * 100) || 0 | number:0 }}%<br/>
 			Dice Certainty: {{ (answerdistances.dice * 100) || 0 | number:0 }}%<br/>-->
-		</div>
-			<div style="text-align:center">
+			</div>
+			<div style="text-align:center" collapse="modal.CIPopout" >
 				<form ng-submit="submitAnswer()" name="answerForm">
 				<div>
 					<div style="margin-top:20px">
-						<span style="font-size: 18px;">what is</span> <input type="text" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid">
+						<span style="font-size: 18px;">what is</span> <input type="text" id ="answerInput" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid">
 					</div>
 					<!--<p>Answer correct: {{ answercorrect }}</p>-->
 				</div>
 			</form>
 			</div>
+			<div collapse="!modal.CIPopout" class="ciPopoutInner">
+				<div class="well well-large ng-class:CIPopoutClass">
+					<p>{{ CIPopoutText }}</p>
+					<br/>
+
+					<p>Answer: {{ question.answer }}</p>
+					<p>You said: {{ answerinput }}</p>
+				</div> 
+			</div>
 		</div>
 		<div class="modal-footer">
-			<button class="btn btn-warning cancel" ng-click="clearModals()">Cancel</button>
-			<button class="btn btn-info cancel" ng-click="submitAnswer()">Submit Answer</button>
+			<button class="btn btn-warning cancel" ng-disabled="modal.CIPopout" ng-click="clearModals()">Cancel</button>
+			<button class="btn btn-info cancel" ng-disabled="modal.CIPopout" ng-click="submitAnswer()">Submit Answer</button>
 			<!--
 			<button class="btn btn-success cancel" ng-click="closeAnswerCorrect()">I got this right</button>
 			<button class="btn btn-danger cancel" ng-click="closeAnswerFalse()">I got this wrong</button>

@@ -4,16 +4,16 @@ var jeopardy = angular.module('myJeopardy', ['ui.bootstrap']);
 
 jeopardy.factory('DataService', function($http){
     var getRandom = function($params){
-        console.log("params");
-        console.log($params);
-        return $http.get('./games', {match: 'GET'}).
+        //console.log("params");
+        //console.log($params);
+        return $http.get('./api/games', {match: 'GET'}).
         success(function(data, status, headers, config) {
             return data;
         });
     };
     var getDistance = function($params){
         console.log($params);
-        return $http.get('./distance', {match: 'GET', params: $params}).
+        return $http.get('./api/distance', {match: 'GET', params: $params}).
         success(function(data, status, headers, config) {
             return data;
         });
@@ -62,10 +62,13 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
 
     $scope.openAnswer = function ($index) {
         $scope.clearModals();
-        if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") == false)
+        if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") === false)
         {
             $scope.modal.answerModal = true;
             $scope.answerinput = "";
+            var timer = setTimeout(function() {
+                $("#answerInput").focus(); 
+            }, 0);
             $scope.setQuestion($index);
         }
     };
@@ -75,15 +78,15 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     };
     $scope.closeAnswerCorrect = function () {
         console.log("correct");
-        $scope.session.currentscore += parseInt($scope.question.value);
+        $scope.session.currentscore += parseInt($scope.question.value, 10);
         $scope.closeQuestion($scope.question.index);
-        $scope.openCIModal(1, 2000);
+        $scope.openCIPopout(1, 2000);
     };
     $scope.closeAnswerFalse = function () {
         console.log("false");
-        $scope.session.currentscore -= parseInt($scope.question.value);
+        $scope.session.currentscore -= parseInt($scope.question.value, 10);
         $scope.closeQuestion($scope.question.index);
-        $scope.openCIModal(0, 2000);
+        $scope.openCIPopout(0, 2000);
     };
 
     $scope.closeQuestion = function($index) {
@@ -159,33 +162,25 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
 
 
     /* CorrectIncorrect Modal */
-    $scope.CIModalOpts = { // load modal
-        backdropFade: false,
-        dialogFade:false,
-        backdropClick: false,
-        keyboard: false,
-        dialogClass : "modal ciModalOuter"
-    };
-
-    $scope.openCIModal = function (correct, $time) {
-        $scope.CIModalAnswer = $scope.question.answer;
-        $scope.modal.CIModal = true;
+    $scope.openCIPopout = function (correct, $time) {
+        $scope.CIPopoutAnswer = $scope.question.answer;
+        $scope.modal.CIPopout = true;
         if (correct)
         {
-            $scope.CIModalClass = "greenModal";
-            $scope.CIModalText = "Correct!";
+            $scope.CIPopoutClass = "greenPopout";
+            $scope.CIPopoutText = "Correct!";
         }
         else
         {
-            $scope.CIModalClass = "redModal";
-            $scope.CIModalText = "Incorrect";
+            $scope.CIPopoutClass = "redPopout";
+            $scope.CIPopoutText = "Incorrect";
         }
-        $scope.closeCIModal($time);
+        $scope.closeCIPopout($time);
     };
 
-    $scope.closeCIModal = function ($time) {
+    $scope.closeCIPopout = function ($time) {
         $timeout(function() {
-            $scope.modal.CIModal = false;
+            $scope.modal.CIPopout = false;
             $scope.clearModals();
         }, $time);
     };
@@ -197,7 +192,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
         $scope.closeLogin();
         $scope.closeQuestion();
         $scope.modal.answerModal = false;
-        $scope.modal.CIModal = false;
+        $scope.modal.CIPopout = false;
         $('div.modal-backdrop').remove();
     };
 });

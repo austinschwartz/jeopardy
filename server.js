@@ -10,8 +10,6 @@ app.configure(function () {
 	app.use(express.bodyParser());
 });
 
-app.use(express.static(__dirname, 'jeopardy'));
-
 app.use('/jeopardy', express.static(__dirname));
 
 

@@ -24,8 +24,7 @@ db.open(function(err, db) {
           }},
           {$match: {"numClues" : 5}}
           ], function(err, result) {
-            for (var i = 0; i < result.length; i++)
-            {
+            for (var i = 0; i < result.length; i++) {
               validcatids.push(result[i]['_id']['catid']);
             }
           });
@@ -55,9 +54,7 @@ exports.findRandomGame = function(req, res) {
   db.collection('clues', function(err, collection) {
     var arr = [];
     for (var i = 0; i < 6; i++)
-    {
-      arr.push(validcatids[Math.floor(Math.random() * validcatids.length)])
-    }
+      arr.push(validcatids[Math.floor(Math.random() * validcatids.length)]);
     var items = collection.find({'catid': {$in : arr}}).toArray(function(err, items){
       res.send(items);
     });

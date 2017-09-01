@@ -62,8 +62,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
 
     $scope.openAnswer = function ($index) {
         $scope.clearModals();
-        if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") === false)
-        {
+        if ($("td[qid='" + $index + "']").hasClass("disabledQuestion") === false) {
             $scope.modal.answerModal = true;
             $scope.answerinput = "";
             var timer = setTimeout(function() {
@@ -102,16 +101,14 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
         }).then(function(response){
             $scope.answerdistances = response.data;
             console.log($scope.answerdistances);
-            $scope.answercorrect = (
-                                    ($scope.answerdistances.dice > .51 && 
+            $scope.answercorrect = (($scope.answerdistances.dice > .51 && 
                                      $scope.answerdistances.jaro > .21) || 
-                                    $scope.answerdistances.jaro > .8);
+                                     $scope.answerdistances.jaro > .8);
             if ($scope.answercorrect)
                 $scope.closeAnswerCorrect();
             else
                 $scope.closeAnswerFalse();
         });
-
     }
 
     /* Login Modal */
@@ -165,13 +162,11 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.openCIPopout = function (correct, $time) {
         $scope.CIPopoutAnswer = $scope.question.answer;
         $scope.modal.CIPopout = true;
-        if (correct)
-        {
+        if (correct) {
             $scope.CIPopoutClass = "greenPopout";
             $scope.CIPopoutText = "Correct!";
         }
-        else
-        {
+        else {
             $scope.CIPopoutClass = "redPopout";
             $scope.CIPopoutText = "Incorrect";
         }
@@ -199,10 +194,8 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
 
 /* filters */
 
-jeopardy.filter('valuefilter', function()
-{
-    return function(value)
-    {
+jeopardy.filter('valuefilter', function() {
+    return function(value) {
         return '$' + value;
     };
 });

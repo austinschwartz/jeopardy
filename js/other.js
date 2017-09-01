@@ -37,7 +37,6 @@ var headers = [];
 rows = [];
 
 $headerCells.each(function(k,v) {
-    //$(this).text('{{ questions[' + (1 + (k * 5)) + ']["category"] }}');
     $(this).text("{{ questions[" + (k * 5) + "]['category'] }}");
 });
 
@@ -49,9 +48,3 @@ $rows.each(function(row,v) {
         $(this).text('{{ ' + 'questions[' + (row + (cell * 5)) + ']["clue"] }}');
     });
 });
-
-// $('table.jeopardyboard th').each(function ()
-// {
-//  var $cell = $(this);
-//  $cell.text(' {{ ' + 'categories[(roundnum)][' + $cell.index() + '] }}');
-// });

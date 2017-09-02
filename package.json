@@ -4,8 +4,9 @@
     "author": "Austin Schwartz",
     "url": "https://github.com/austinschwartz/jeopardy",
     "email": "me@austinschwartz.com",
+    "license": "MIT",
     "version": "1.0.0",
-    "private": true,
+    "private": false,
     "dependencies": {
       "express": "3.3.1",
       "mongodb": "1.x",

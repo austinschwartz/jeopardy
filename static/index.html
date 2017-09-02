@@ -106,7 +106,7 @@
           <div style="float:left" collapse="modal.CIPopout" >
             <!--<span style="font-weight:bold">Answer: {{ question.answer }}</span><br/>-->
             Value: {{ question.value | valuefilter }}<br/>
-            index: {{ question.index }}<br/><br/>
+            <!--index: {{ question.index }}<br/><br/>-->
             <!--Jaro Certainty: {{ (answerdistances.jaro * 100) || 0 | number:0 }}%<br/>
               Dice Certainty: {{ (answerdistances.dice * 100) || 0 | number:0 }}%<br/>-->
           </div>
@@ -114,7 +114,7 @@
             <form ng-submit="submitAnswer()" name="answerForm">
               <div>
                 <div style="margin-top:20px">
-                  <span style="font-size: 18px;">what is</span> <input type="text" id ="answerInput" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid">
+                  <span style="font-size: 18px;">What is </span> <input type="text" id ="answerInput" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid" style="margin-bottom:5px;" >?
                 </div>
                 <!--<p>Answer correct: {{ answercorrect }}</p>-->
               </div>

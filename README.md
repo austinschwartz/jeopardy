@@ -1,4 +1,7 @@
 # jeopardy
+
+![Example screenshot](jeopardy.png)
+
 Simple Angular/Node project for playing randomized jeopardy games. :)
 
 1. Use nvm to switch to node 0.10.12 using `nvm use`

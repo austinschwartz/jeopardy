@@ -1,11 +1,7 @@
 var jeopardy = angular.module('myJeopardy', ['ui.bootstrap']);
 
-/* factories */
-
 jeopardy.factory('DataService', function($http){
   var getRandom = function($params){
-    //console.log("params");
-    //console.log($params);
     return $http.get('./api/games', {match: 'GET'}).
       success(function(data, status, headers, config) {
         return data;
@@ -24,8 +20,6 @@ jeopardy.factory('DataService', function($http){
   };
 });
 
-/* controllers */
-
 jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
   $scope.session = {};
   $scope.modal = {};
@@ -42,8 +36,8 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.session.gamecount++;
     $scope.openLoading();
     DataService.get().then(function(response){
-      $scope.questions    = response.data;
-      console.log("received clues: ", response);
+      $scope.questions = response.data;
+      //console.log("received clues: ", response);
     });
     $scope.closeLoading();
   };
@@ -53,8 +47,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.question.index = $id;
   };
 
-  /* Answer Modal */
-  $scope.answerOpts = { // answer modal
+  $scope.answerOpts = {
     backdropFade: true,
     dialogFade: true,
     backdropClick: true,
@@ -76,12 +69,14 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
   $scope.closeAnswer = function () {
     $scope.modal.answerModal = false;
   };
+
   $scope.closeAnswerCorrect = function () {
     console.log("correct");
     $scope.session.currentscore += parseInt($scope.question.value, 10);
     $scope.closeQuestion($scope.question.index);
     $scope.openCIPopout(1, 2000);
   };
+
   $scope.closeAnswerFalse = function () {
     console.log("false");
     $scope.session.currentscore -= parseInt($scope.question.value, 10);
@@ -112,8 +107,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     });
   }
 
-  /* Login Modal */
-  $scope.loginOpts = { // login modal
+  $scope.loginOpts = {
     backdropFade: true,
     dialogFade:true
   };
@@ -126,9 +120,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.modal.loginModal = false;
   };
 
-
-  /* Register Modal */
-  $scope.registerOpts = { // login modal
+  $scope.registerOpts = {
     backdropFade: true,
     dialogFade:true
   };
@@ -141,9 +133,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.modal.registerModal = false;
   };
 
-
-  /* Loading Modal */
-  $scope.loadOpts = { // load modal
+  $scope.loadOpts = {
     backdropFade: true,
     dialogFade:true,
     backdropClick: true,
@@ -158,8 +148,6 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.modal.loadingModal = false;
   };
 
-
-  /* CorrectIncorrect Modal */
   $scope.openCIPopout = function (correct, $time) {
     $scope.CIPopoutAnswer = $scope.question.answer;
     $scope.modal.CIPopout = true;
@@ -192,8 +180,6 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $('div.modal-backdrop').remove();
   };
 });
-
-/* filters */
 
 jeopardy.filter('valuefilter', function() {
   return function(value) {

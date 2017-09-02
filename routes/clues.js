@@ -9,27 +9,27 @@ var validcatids = [];
 
 var db = null;
 
-// Connect to the db
 MongoClient.connect("mongodb://localhost:27017/jeopardydb", function(err, conn) {
-  db = conn;
   if(!err) {
-      console.log("Connected correctly to server.");
-      db.collection("clues", {strict:true}, function(err, col) {
-        if (err)
-          console.log(err);
-        col.aggregate([
-          {$group : {
-                "_id" : {
-                    "catid" : "$catid",
-                },
-                "numClues" : {$sum: 1}
-          }},
-          {$match: {"numClues" : 5}}
-          ], function(err, result) {
-            for (var i = 0; i < result.length; i++) {
-              validcatids.push(result[i]['_id']['catid']);
-            }
-          });
+    db = conn;
+    console.log("Connected correctly to server.");
+    db.collection("clues", {strict:true}, function(err, col) {
+      if (err)
+        console.log(err);
+      col.aggregate([
+        {$group : {
+              "_id" : {
+                  "catid" : "$catid",
+              },
+              "numClues" : {$sum: 1}
+        }},
+        {$match: {"numClues" : 5}}
+        ], function(err, result) {
+          for (var i = 0; i < result.length; i++) {
+            validcatids.push(result[i]['_id']['catid']);
+          }
+        }
+      );
     });
   }
 });

@@ -19,21 +19,14 @@
             <h3 class="muted">Jeopardy</h3>
           </div>
           <div style="float:left">
-            <button class="btn btn-warning" style="margin-top: 14px; margin-left: 25px;" ng-click="loadGame()">Random</button>
-            <!--<button class="btn btn-info" style="margin-top: 14px; margin-left: 15px;" ng-click="openLogin()" disabled>Login</button>-->
-            <!--<button class="btn btn-inverse" style="margin-top: 14px; margin-left: 15px;" ng-click="openRegister()" disabled>Register</button>-->
-            <!--<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedScoring = !collapsedScoring">Scoring</button>-->
-            <!--<button class="btn" style="margin-top: 14px; margin-left: 15px;" ng-click="collapsedOptions = !collapsedOptions">Options</button>-->
+            <button class="btn btn-warning" style="margin-top: 14px; margin-left: 25px;" ng-click="loadGame()">New Game</button>
           </div>
-          <!--<div style="text-align:right;">-->
-          <!--<h3 class="muted">Randomized Game</h3>-->
-          <!--</div>-->
         </div>
       </div>
       <div id="tophero" collapse="isCollapsed">
         <div id="scoringhero" collapse="collapsedScoring">
           <div>
-            <h3>
+            <h3 ng-cloak>
               Current Score: {{ session.currentscore | valuefilter }}
             </h3>
             <!--<p>-->
@@ -41,13 +34,8 @@
             <!--</p>-->
           </div>
         </div>
-        <!--<div id="optionshero" collapse="collapsedOptions">-->
-        <!--<div style="padding:10px">-->
-        <!--Options-->
-        <!--</div>-->
-        <!--</div>-->
       </div>
-      <div id="maintest2">
+      <div id="maingrid">
         <table class="table table-bordered jeopardyboard">
           <thead>
             <tr id ="head">
@@ -182,10 +170,6 @@
             <div class="controls"><input type="password" data-ng-model="password" placeholder="Password" name="password" required="required" data-ng-minlength="5" data-ng-maxlength="60" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-minlength">
             </div>
           </div>
-          <!--<div class="control-group">
-            <label class="radio inline"><input type="radio" name="role" data-ng-model="role" id="adminRole" data-ng-value="4" class="ng-pristine ng-valid">Administrator</label>
-            <label class="radio inline"><input type="radio" name="role" data-ng-model="role" id="adminRole" data-ng-value="2" class="ng-pristine ng-valid">Normal user</label>
-            </div>-->
             <div class="control-group">
               <div class="controls">
                 <button type="submit" data-ng-disabled="registerForm.$invalid" class="btn" disabled="disabled">Submit</button>

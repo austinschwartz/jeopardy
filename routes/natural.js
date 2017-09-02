@@ -1,7 +1,5 @@
 var nat = require('natural');
 
-console.log("nat loaded");
-
 exports.jaroWinkler = function(req, res) {
     var input = req['query'];
     if (input['input']) {

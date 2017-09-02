@@ -1,16 +1,17 @@
 {
-  "name": "jeopardy",
-    "description": "Jeopardy",
-    "author": "Austin Schwartz",
-    "url": "https://github.com/austinschwartz/jeopardy",
-    "email": "me@austinschwartz.com",
-    "license": "MIT",
-    "version": "1.0.0",
-    "private": false,
-    "dependencies": {
-      "express": "3.3.1",
-      "mongodb": "1.x",
-      "natural": "0.1.21"
-    },
-    "engine": "node 0.10.12"
+  "name": "jeopardyjs",
+  "description": "Jeopardy",
+  "author": "Austin Schwartz",
+  "url": "https://jeopardy.austinschwartz.com",
+  "repository": "https://github.com/austinschwartz/jeopardy",
+  "email": "me@austinschwartz.com",
+  "license": "MIT",
+  "version": "1.0.1",
+  "private": false,
+  "dependencies": {
+    "express": "3.3.1",
+    "mongodb": "1.x",
+    "natural": "0.1.21"
+  },
+  "engine": "node 0.10.12"
 }

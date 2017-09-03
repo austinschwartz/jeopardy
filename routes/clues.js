@@ -57,15 +57,12 @@ exports.findRandomGame = function(req, res) {
     var arr = [];
     for (var i = 0; i < 6; i++)
       arr.push(validcatids[Math.floor(Math.random() * validcatids.length)]);
-    var items = collection.find({'catid': {$in : arr}}).toArray(function(err, items){
+    collection.find({'catid': {$in : arr}}).toArray(function(err, items){
       if (err)
         console.log(err);
       for (var i = 0; i < items.length; i++) {
-        items[i].value = items[i].value.replace(/,/g, '');
+        items[i].value = parseInt(items[i].value.replace(/,/g, ''));
       }
-      items.sort(function(a, b) {
-        return parseInt(a.value) - parseInt(b.value);
-      });
       res.send(items);
     });
   });

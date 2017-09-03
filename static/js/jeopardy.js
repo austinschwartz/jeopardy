@@ -28,6 +28,7 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
   $scope.collapsedHeader = false;
   $scope.collapsedOptions = true;
   $scope.collapsedScoring = false;
+  $scope.values = false;
 
   $scope.loadGame = function () {
     for (var j = 0; j < 30; j++) {
@@ -37,10 +38,19 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     $scope.openLoading();
     DataService.get().then(function(response){
       $scope.questions = response.data;
-      //console.log("received clues: ", response);
     });
     $scope.closeLoading();
   };
+
+  $scope.flipValues = function () {
+    var url = window.location.href;    
+    if (url.indexOf('values') > -1){
+      url = '/';
+    } else {
+      url += '?values'
+    }
+    window.location.href = url;
+  }
 
   $scope.setQuestion = function ($id) {
     $scope.question = $scope.questions[$id];

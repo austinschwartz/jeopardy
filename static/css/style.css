@@ -147,3 +147,8 @@ div.greenPopout {
   border-color: #d6e9c6;
   color: #468847;
 }
+
+.value {
+  vertical-align:middle;
+  text-align:center;
+}

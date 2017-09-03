@@ -60,6 +60,9 @@ exports.findRandomGame = function(req, res) {
     var items = collection.find({'catid': {$in : arr}}).toArray(function(err, items){
       if (err)
         console.log(err);
+      items.sort(function(a, b) {
+        return parseInt(a.value) - parseInt(b.value);
+      });
       res.send(items);
     });
   });

@@ -1,13 +1,12 @@
-var express = require('express'),
-
-clue = require('./routes/clues');
-nat = require('./routes/natural');
-
+var express = require('express');
 var app = express();
 
+var clue = require('./routes/clues');
+var nat = require('./routes/natural');
+
 app.configure(function () {
-	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
 });
 
 app.use('/', express.static(__dirname + "/static"));

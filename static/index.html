@@ -104,7 +104,7 @@
                 <div style="margin-top:20px">
                   <span style="font-size: 18px;">What is </span> <input type="text" id ="answerInput" data-ng-model="answerinput" placeholder="Answer" name="answerinput" class="ng-pristine ng-invalid" style="margin-bottom:5px;" > ?
                 </div>
-                <!--<p>Answer correct: {{ answercorrect }}</p>-->
+                  <!--<p>Answer correct: {{ answercorrect }}</p>-->
               </div>
             </form>
           </div>
@@ -170,22 +170,22 @@
             <div class="controls"><input type="password" data-ng-model="password" placeholder="Password" name="password" required="required" data-ng-minlength="5" data-ng-maxlength="60" class="ng-pristine ng-invalid ng-invalid-required ng-valid-maxlength ng-valid-minlength">
             </div>
           </div>
-            <div class="control-group">
-              <div class="controls">
-                <button type="submit" data-ng-disabled="registerForm.$invalid" class="btn" disabled="disabled">Submit</button>
-              </div>
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" data-ng-disabled="registerForm.$invalid" class="btn" disabled="disabled">Submit</button>
             </div>
-            <div ng-show="registerForm.$invalid" class="alert alert-error" style="margin-bottom:-20px">
-              <strong>Please correct the following errors:</strong>
-              <ul>
-                <li ng-show="registerForm.username.$error.required" style="">Username is required</li>
-                <li ng-show="registerForm.username.$error.minlength" style="display: none;">Username has to be at least 1 character long</li>
-                <li ng-show="registerForm.username.$error.maxlength" style="display: none;">Username has to be at most 20 character long</li>
-                <li ng-show="registerForm.password.$error.required" style="">Password is required</li>
-                <li ng-show="registerForm.password.$error.minlength" style="display: none;">Password must be at least 5 characters long</li>
-                <li ng-show="registerForm.password.$error.maxlength" style="display: none;">Password must be at most 60 characters long</li>
-              </ul>
-            </div>
+          </div>
+          <div ng-show="registerForm.$invalid" class="alert alert-error" style="margin-bottom:-20px">
+            <strong>Please correct the following errors:</strong>
+            <ul>
+              <li ng-show="registerForm.username.$error.required" style="">Username is required</li>
+              <li ng-show="registerForm.username.$error.minlength" style="display: none;">Username has to be at least 1 character long</li>
+              <li ng-show="registerForm.username.$error.maxlength" style="display: none;">Username has to be at most 20 character long</li>
+              <li ng-show="registerForm.password.$error.required" style="">Password is required</li>
+              <li ng-show="registerForm.password.$error.minlength" style="display: none;">Password must be at least 5 characters long</li>
+              <li ng-show="registerForm.password.$error.maxlength" style="display: none;">Password must be at most 60 characters long</li>
+            </ul>
+          </div>
         </form>
       </div>
 
@@ -199,5 +199,15 @@
     </div>
     <script src="js/jeopardy.js"></script>
     <script src="js/other.js"></script>
+    <script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-43111202-2', 'auto');
+ga('send', 'pageview');
+
+    </script>
   </body>
 </html>

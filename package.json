@@ -10,8 +10,7 @@
   "private": false,
   "dependencies": {
     "express": "3.3.1",
-    "mongodb": "1.x",
+    "mongodb": "2.x",
     "natural": "0.1.21"
-  },
-  "engine": "node 0.10.12"
+  }
 }

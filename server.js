@@ -18,6 +18,6 @@ app.get('/api/games', clue.findRandomGame);
 
 app.get('/api/distance', nat.jaroWinkler);
 
-app.listen(8001);
-console.log('Listening on port 8001...');
+app.listen(8000);
+console.log('Listening on port 8000...');
 

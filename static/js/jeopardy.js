@@ -107,9 +107,22 @@ jeopardy.controller('BoardController', function($scope, DataService, $timeout) {
     }).then(function(response){
       $scope.answerdistances = response.data;
       console.log($scope.answerdistances);
-      $scope.answercorrect = (($scope.answerdistances.dice > .51 && 
-            $scope.answerdistances.jaro > .21) || 
-          $scope.answerdistances.jaro > .8);
+      // old scheme
+      //$scope.answercorrect = (($scope.answerdistances.dice > .51 &&
+            //$scope.answerdistances.jaro > .21) ||
+          //$scope.answerdistances.jaro > .8);
+
+      // new scheme, yes i realize this code is bad.
+      let w1 = 4.42728467;
+      let w2 = 6.21669149;
+      let w3 = 5.05926221;
+      let t = 5.11831322;
+      let dice = $scope.answerdistances.dice;
+      let jaro = $scope.answerdistances.jaro;
+      let levNorm = 1 - $scope.answerdistances.leven / Math.max($scope.answerinput.length, $scope.question.answer.length);
+      console.log(dice + " " + jaro + " " + levNorm);
+      console.log((w1 * jaro + w2 * levNorm + w3 * dice) + " > " + t);
+      $scope.answercorrect = w1 * jaro + w2 * levNorm + w3 * dice > t;
       if ($scope.answercorrect)
         $scope.closeAnswerCorrect();
       else
